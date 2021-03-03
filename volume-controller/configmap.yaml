@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velero-volume-controller
+  namespace: velero
+data:
+  config.yml: |
+    clusterServerCfg:
+      masterURL:
+      kubeConfig:
+      leaseLockNamespace: velero 
+      leaseLockName: velero-volume-controller
+    veleroVolumeCfg:
+      includeNamespaces: 
+      excludeNamespaces:
+      includeVolumeTypes: persistentVolumeClaim
+      excludeVolumeTypes:
